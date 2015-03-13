@@ -59,11 +59,10 @@ public class PhotoShop {
         }
         
         // Send order queue to order manager
-        System.out.println("Orders in urgentQueue: " + orderQueue.getSize());
-        System.out.println("Orders in orderQueue: "  + urgentQueue.getSize());
+        System.out.println("Orders in urgentQueue: " + urgentQueue.getSize());
+        System.out.println("Orders in orderQueue: "  + orderQueue.getSize());
         
-        
-         //loop urgentQueue and orderQueue
+        //loop urgentQueue and orderQueue
         while (urgentQueue.hasItems() || orderQueue.hasItems()) {
 
             //if there are urgentItems, do the urgentItems
