@@ -24,6 +24,7 @@ public class Order {
     private int clientID;
     private boolean processing=false;
     private long startTime;
+    private long duration;
     private boolean complete=false;
     private boolean awaitOrder=false;
     private boolean urgent = false;
@@ -32,7 +33,6 @@ public class Order {
         this.orderID = this.hashCode();
         this.clientID = clientID;
         this.urgent = urgent;
-        this.startTime = System.currentTimeMillis();    
     }
     
     public void setStartTime(long startTime){
@@ -77,8 +77,10 @@ public class Order {
     /**
      * @param process the processing to set
      */
-    public void setProcessing(boolean process) {
-        this.processing = process;
+    public void setProcessing() {
+        this.processing = true;
+        this.startTime  = System.currentTimeMillis();    
+
     }
 
     /**
@@ -88,11 +90,18 @@ public class Order {
         return startTime;
     }
 
+     /**
+     * @void long the duration, currentTime - startime
+     */
+    public void setDuration() {
+        this.duration = System.currentTimeMillis() - this.startTime;
+    }
+    
     /**
      * @return long the duration
      */
     public long getDuration() {
-        return System.currentTimeMillis() - this.startTime;
+        return this.duration;
     }
 
     /**
@@ -105,8 +114,9 @@ public class Order {
     /**
      * @param complete the complete to set
      */
-    public void setComplete(boolean complete) {
-        this.complete = complete;
+    public void setComplete() {
+        this.complete = true;
+        this.setDuration();
     }
 
     /**

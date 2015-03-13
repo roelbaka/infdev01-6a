@@ -15,13 +15,12 @@ public class OrderManager {
         Order order = (Order)orderQueue.peek();
      
         // Set order status to processing
-        order.isProcessing();
+        order.setProcessing();
         
-        System.out.println("Order: " + ((Order)orderQueue.peek()).getOrderID() + ", from client: " + ((Order)orderQueue.peek()).getClientID() + " is processing");
+        System.out.println("Order: " + order.getOrderID() + ", from client: " + order.getClientID() + " is processing");
         
         // Zet de staat van de bestelling op “Compleet” als de huidige tijdstempel hoger dan de som van “start tijd” en “duur” is
-        order.isComplete();
-        
+        order.setComplete();
         
         System.out.println("Order is complete, duration: " + order.getDuration());
         
