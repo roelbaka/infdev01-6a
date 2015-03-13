@@ -20,7 +20,7 @@ import java.util.List;
 
 /**
  *
- * @author Johnson
+ * @author Roel
  */
 public class PhotoShop {
 
@@ -79,5 +79,3 @@ public class PhotoShop {
         }
     }
 }
-
-

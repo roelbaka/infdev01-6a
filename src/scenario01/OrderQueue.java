@@ -7,7 +7,7 @@ import java.util.LinkedList;
 
 /**
  *
- * @author Johnson
+ * @author Roel
  */
 public class OrderQueue<E> {
    private LinkedList<E> list = new LinkedList<E>();
