@@ -73,13 +73,28 @@ public class PhotoShop {
             System.out.println(client.getLastName() + " " + client.getFirstName());
         }
         
+        
+        System.out.println("BinarySearch with duplicateContent");
         //used collections framework for binarySearch, instead of looking for a binarySearch script
+        ArrayList resultList = new ArrayList();
+        BinarySearch binarySearch = new BinarySearch();
+        
+        //duplicate clientList to searchList
+        ArrayList<Client> searchList = new ArrayList<>();
+        for (Client client : clientList) {
+            searchList.add(client);
+        }
+        
         //We need to create a new Client object, with the intended lastName Value, 
         //the rest of the values is not important
-        Client result = clientList.get(Collections.binarySearch(clientList, 
+        resultList = binarySearch.search(searchList, 
                 new Client("Bakker", "", "", 0, 'M', "", ""),
-                lastNameComparator));
+                lastNameComparator);
+
         
-        System.out.println(result);
+        //show the results of the resultList 
+        for (int i = 0; i < resultList.size(); i++) {
+             System.out.println(clientList.get((int)resultList.get(i)));
+        }
     }
 }
