@@ -12,9 +12,18 @@ import java.util.ArrayList;
  */
 public class LinearSearch {
 
-    public Client linearSearch(ArrayList<Client> clientList, String wordnum) {
+    public Client linearSearch(ArrayList<Client> clientList, String lastName) {
         for (Client client : clientList) {
-            if (client.getLastName().equalsIgnoreCase(wordnum)) {
+            if (client.getLastName().equalsIgnoreCase(lastName)) {
+                return client;
+            }
+        }
+        return null;
+    }
+
+    public Client linearSearch(ArrayList<Client> clientList, int age) {
+        for (Client client : clientList) {
+            if (client.getAge() == age) {
                 return client;
             }
         }

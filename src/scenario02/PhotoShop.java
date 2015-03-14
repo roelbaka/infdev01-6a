@@ -48,9 +48,8 @@ public class PhotoShop {
         
         
         LinearSearch search = new LinearSearch();
-        String word = "tafel";
-        
-        System.out.println(search.linearSearch(clientList, word));
+        System.out.println(search.linearSearch(clientList, "tafel"));
+        System.out.println(search.linearSearch(clientList, 27));
         
         //used collections framework, instead of looking for a mergesort script
         ClientAgeComparator comparator = new ClientAgeComparator();
