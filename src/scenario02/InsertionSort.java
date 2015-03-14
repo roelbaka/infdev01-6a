@@ -21,10 +21,10 @@ import java.util.Comparator;
       **       ascending order with respect to the ordering defined by c's
       **       compare() method
       */
-      public void sort(ArrayList<Client> clientList, Comparator c) {
+      public <T> void sort(ArrayList<T> clientList, Comparator c) {
 
          for (int i=0;  i != clientList.size();  i = i+1) {
-            Client itemToInsert = clientList.get(i);
+            T itemToInsert = clientList.get(i);
             int j = i;
             while (j != 0  &&  greaterThan(c, clientList.get(j-1), itemToInsert)) {
                clientList.set(j,clientList.get(j - 1));

@@ -54,20 +54,23 @@ public class PhotoShop {
         //search by age
         System.out.println(search.linearSearch(clientList, 27));
         
+        //instantiate lastnamecomparator, and instantiate insertionsSort
         ClientLastNameComparator lastNameComparator = new ClientLastNameComparator();
         InsertionSort insertionSort = new InsertionSort();
         insertionSort.sort(clientList, lastNameComparator);
         
+        System.out.println("\n sorted by lastName");
         for (Client client : clientList) {
-            System.out.println(client.getLastName());
+            System.out.println(client.getLastName() + " " + client.getFirstName());
         }
         
         //used collections framework, instead of looking for a mergesort script
         ClientAgeComparator ageComparator = new ClientAgeComparator();
         Collections.sort(clientList, ageComparator);
 
+        System.out.println("\n sorted by age");
         for (Client client : clientList) {
-            System.out.println(client.getFirstName());
+            System.out.println(client.getFirstName() + " " + client.getAge());
         }
     }
 }
