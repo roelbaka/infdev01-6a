@@ -47,13 +47,24 @@ public class PhotoShop {
         clientList.add(new Client("tafel", "suffix02", "stoel", 332, 'F', "City02", "emailAddress02"));
         
         
+        //instantiate search
         LinearSearch search = new LinearSearch();
+        //search by lastName
         System.out.println(search.linearSearch(clientList, "tafel"));
+        //search by age
         System.out.println(search.linearSearch(clientList, 27));
         
+        ClientLastNameComparator lastNameComparator = new ClientLastNameComparator();
+        InsertionSort insertionSort = new InsertionSort();
+        insertionSort.sort(clientList, lastNameComparator);
+        
+        for (Client client : clientList) {
+            System.out.println(client.getLastName());
+        }
+        
         //used collections framework, instead of looking for a mergesort script
-        ClientAgeComparator comparator = new ClientAgeComparator();
-        Collections.sort(clientList, comparator);
+        ClientAgeComparator ageComparator = new ClientAgeComparator();
+        Collections.sort(clientList, ageComparator);
 
         for (Client client : clientList) {
             System.out.println(client.getFirstName());
