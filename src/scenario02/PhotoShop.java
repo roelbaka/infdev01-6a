@@ -44,15 +44,24 @@ public class PhotoShop {
         clientList.add(new Client("Utrecht", "suffix02", "firstName02", 42, 'F', "City02", "emailAddress02"));
         clientList.add(new Client("Pim", "suffix02", "Pom", 132, 'F', "City02", "emailAddress02"));
         clientList.add(new Client("Bob", "suffix02", "sorteer", 232, 'F', "City02", "emailAddress02"));
-        clientList.add(new Client("tafel", "suffix02", "stoel", 332, 'F', "City02", "emailAddress02"));
+        clientList.add(new Client("Bakker", "suffix02", "stoel", 332, 'F', "City02", "emailAddress02"));
         
+        //used collections framework, instead of looking for a mergesort script
+        ClientAgeComparator ageComparator = new ClientAgeComparator();
+        Collections.sort(clientList, ageComparator);
+
+        System.out.println("\n sorted by age");
+        for (Client client : clientList) {
+            System.out.println(client.getFirstName() + " " + client.getAge());
+        }
         
-        //instantiate search
+        //instantiate LinearSearch search
         LinearSearch search = new LinearSearch();
         //search by lastName
         System.out.println(search.linearSearch(clientList, "tafel"));
         //search by age
         System.out.println(search.linearSearch(clientList, 27));
+        
         
         //instantiate lastnamecomparator, and instantiate insertionsSort
         ClientLastNameComparator lastNameComparator = new ClientLastNameComparator();
@@ -64,13 +73,13 @@ public class PhotoShop {
             System.out.println(client.getLastName() + " " + client.getFirstName());
         }
         
-        //used collections framework, instead of looking for a mergesort script
-        ClientAgeComparator ageComparator = new ClientAgeComparator();
-        Collections.sort(clientList, ageComparator);
-
-        System.out.println("\n sorted by age");
-        for (Client client : clientList) {
-            System.out.println(client.getFirstName() + " " + client.getAge());
-        }
+        //used collections framework for binarySearch, instead of looking for a binarySearch script
+        //We need to create a new Client object, with the intended lastName Value, 
+        //the rest of the values is not important
+        Client result = clientList.get(Collections.binarySearch(clientList, 
+                new Client("Bakker", "", "", 0, 'M', "", ""),
+                lastNameComparator));
+        
+        System.out.println(result);
     }
 }
