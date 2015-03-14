@@ -36,7 +36,7 @@ public class PhotoShop {
      */
     public static void main(String[] args) {
         // Create clients
-        List<Client> clientList = new ArrayList<>();
+        ArrayList<Client> clientList = new ArrayList<>();
         clientList.add(new Client("Bakker", "", "Roel", 27, 'F', "City01", "emailAddress01"));
         clientList.add(new Client("Mpaulo", "", "Emauel", 24, 'F', "City02", "emailAddress02"));
         clientList.add(new Client("Rotterdam", "suffix03", "oost", 29, 'F', "City03", "emailAddress03"));
@@ -46,8 +46,14 @@ public class PhotoShop {
         clientList.add(new Client("Bob", "suffix02", "sorteer", 232, 'F', "City02", "emailAddress02"));
         clientList.add(new Client("tafel", "suffix02", "stoel", 332, 'F', "City02", "emailAddress02"));
         
-        int id = 0;
-        CustomComparator comparator = new CustomComparator();
+        
+        LinearSearch search = new LinearSearch();
+        String word = "tafel";
+        
+        System.out.println(search.linearSearch(clientList, word));
+        
+        //used collections framework, instead of looking for a mergesort script
+        ClientAgeComparator comparator = new ClientAgeComparator();
         Collections.sort(clientList, comparator);
 
         for (Client client : clientList) {
