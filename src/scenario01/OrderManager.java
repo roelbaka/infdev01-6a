@@ -9,8 +9,9 @@ public class OrderManager {
 
     public OrderManager(Order order) {     
         // Set order status to processing
+        System.out.println("is processing: "+ order.isProcessing());
         order.setProcessing();
-        
+        System.out.println("is processing: "+ order.isProcessing());
         System.out.println("Order: " + order.getOrderID() + ", from client: " + order.getClientID() + " is processing");
         
         // Zet de staat van de bestelling op “Compleet” als de huidige tijdstempel hoger dan de som van “start tijd” en “duur” is
