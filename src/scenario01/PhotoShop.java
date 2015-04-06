@@ -68,13 +68,17 @@ public class PhotoShop {
             //if there are urgentItems, do the urgentItems
             if(urgentQueue.hasItems()){
                 System.out.println("\nOrders in urgentQueue: " + urgentQueue.getSize());
-                new OrderManager(urgentQueue);
+                new OrderManager((Order)urgentQueue.peek());
+                // Remove completed order from queue
+                urgentQueue.dequeue();
             }
             
             //if there are no urgentItemes, but there are orderItems, do the orderItems
             if(orderQueue.hasItems() && !urgentQueue.hasItems()){
                 System.out.println("\nOrders in orderQueue: " + orderQueue.getSize());
-                new OrderManager(orderQueue);
+                new OrderManager((Order)orderQueue.peek());
+                // Remove completed order from queue
+                orderQueue.dequeue();
             }
         }
     }

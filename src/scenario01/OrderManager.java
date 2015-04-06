@@ -5,15 +5,9 @@
  */
 package scenario01;
 
-/**
- *
- * @author Roel
- */
 public class OrderManager {
-    
-    public OrderManager(OrderQueue orderQueue) {
-        Order order = (Order)orderQueue.peek();
-     
+
+    public OrderManager(Order order) {     
         // Set order status to processing
         order.setProcessing();
         
@@ -23,9 +17,5 @@ public class OrderManager {
         order.setComplete();
         
         System.out.println("Order is complete, duration: " + order.getDuration());
-        
-        // Remove completed order from queue
-        orderQueue.dequeue();
     }
-
 }
